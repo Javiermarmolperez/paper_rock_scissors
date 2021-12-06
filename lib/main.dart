@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:piedra_papel_tijeras/Game.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
+
   MyHomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
@@ -45,7 +47,9 @@ class _MyHomePageState extends State<MyHomePage> {
             ))
       ],
     ),
-    onPressed: () {  },
+    onPressed: () {
+      choose("paper");
+    },
   );
 
   var buttonRock = ElevatedButton(
@@ -64,7 +68,9 @@ class _MyHomePageState extends State<MyHomePage> {
             ))
       ],
     ),
-    onPressed: () {  },
+    onPressed: () {
+      choose("rock");
+    },
   );
 
   var buttonScissors = ElevatedButton(
@@ -83,7 +89,10 @@ class _MyHomePageState extends State<MyHomePage> {
             ))
       ],
     ),
-    onPressed: () {  },
+    onPressed: () => {
+      choose("scissors")
+    },
+
   );
 
   @override
@@ -103,6 +112,12 @@ class _MyHomePageState extends State<MyHomePage> {
       )
         );
   }
+}
+
+void choose(aString) {
+  var game = Game();
+  var result = game.chooseElection(aString);
+  print(result);
 }
 
 
